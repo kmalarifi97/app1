@@ -1,0 +1,17 @@
+name: app1
+recipe: laravel
+config:
+  webroot: public
+  php: '8.2'
+
+services:
+  appserver:
+    scanner: false
+    healthcheck: false
+    overrides:
+      environment:
+        PHP_IDE_CONFIG: "serverName=appserver"
+
+proxy:
+  appserver:
+    - app1.lndo.site
